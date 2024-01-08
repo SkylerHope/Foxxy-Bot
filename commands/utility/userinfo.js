@@ -26,7 +26,7 @@ module.exports = {
         }
 
         const userMember = guild.members.cache.get(user.id);
-        const userJoinedAt = userMember.JoinedAt;
+        const userJoinDate = userMember.joinedAt ? userMember.joinedAt.toDateString() : 'Not available';
 
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
@@ -34,7 +34,7 @@ module.exports = {
             .setThumbnail(`${userAvatar}`)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: false },
-                { name: 'Joined Server At', value: `${userJoinedAt}`, inline: false }
+                { name: 'Joined Server At', value: `${userJoinDate}`, inline: true }
             )
 
         // Below line for testing
