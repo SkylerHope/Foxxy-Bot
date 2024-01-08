@@ -2,6 +2,7 @@
 
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
+const { isURL } = require('validator');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,10 +17,14 @@ module.exports = {
         const author = interaction.user;
         const authorName = author.username;
         let user = interaction.options.getUser('user');
-        const userName =user.username;
+        const userName = user ? user.username : authorName;
         const guild = interaction.guild;
         const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
-        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 512});
+        const userAvatar = user
+            ? isURL(user.avatarURL({ format: 'png', dynamic: true, size: 512 }))
+                ? user.avatarURL({ format: 'png', dynamic: true, size: 512 })
+                : authorAvatar
+            : authorAvatar;
 
         if (!user) {
             user = author;
