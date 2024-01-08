@@ -22,11 +22,18 @@ module.exports = {
             user = author;
         }
 
+        const userCache = message.guild.members.cache.get(user.id);
+        const userJoinedAt = userCache.JoinedAt;
+
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
             .setAuthor({ name: `${author}`, iconURL: `${userAvatar}`})
+            .addFields(
+                { name: 'Name', value: `${userName}`, inline: false},
+                { name: 'Joined Server At', value: `${userJoinedAt}`, inline: false}
+            )
 
         // Below line for testing
         await interaction.reply(userInfoEmbed); 
-    }
+    },
 };
