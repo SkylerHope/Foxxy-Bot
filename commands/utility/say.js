@@ -5,9 +5,14 @@ const { SlashCommandBuilder, User } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('say')
-        .setDescription('Make Foxxy say anything'),
+        .setDescription('Make Foxxy say anything')
+        .addStringOption(option =>
+            option.setName('text')
+                .setDescription('Type your text here')
+                .setRequired(true)
+    ),
     execute: async (interaction) => {
-        let text = User.arguments;
-        await interaction.reply(text);
+        const userText = interaction.options.getString('text');
+        await interaction.reply(userText);
     },
 };
