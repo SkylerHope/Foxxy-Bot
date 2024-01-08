@@ -20,7 +20,7 @@ module.exports = {
         const userName = user ? user.username : authorName;
         const guild = interaction.guild;
         const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
-        const userAvatar = user
+        let userAvatar = user
             ? isURL(user.avatarURL({ format: 'png', dynamic: true, size: 512 }))
                 ? user.avatarURL({ format: 'png', dynamic: true, size: 512 })
                 : authorAvatar
@@ -36,7 +36,7 @@ module.exports = {
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
             .setAuthor({ name: `${authorName}`, iconURL: `${authorAvatar}`})
-            .setThumbnail(`${userAvatar}`)
+            .setThumbnail(userAvatar)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: true },
                 { name: 'Joined Server At', value: `${userJoinDate}`, inline: true }
