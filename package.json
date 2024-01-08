@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Skyler.sh",
+  "author": "SkylerHope",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.14.1"
