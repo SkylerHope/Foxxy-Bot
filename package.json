@@ -1,0 +1,16 @@
+{
+  "name": "foxxy-bot",
+  "version": "1.0.0",
+  "description": "A multipurpose bot for your discord server!",
+  "main": "main.cjs",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Skyler.sh",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
