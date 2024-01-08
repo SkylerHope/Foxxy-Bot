@@ -13,11 +13,11 @@ module.exports = {
                 .setRequired(false)
     ),
     execute: async (interaction) => {
-        const author = message.author;
+        const author = interaction.user;
         const user = interaction.options.getUser('user');
         const userName = user.username;
         const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
-        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 500});
+        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 512});
 
         if (!user) {
             user = author;
@@ -36,6 +36,6 @@ module.exports = {
             )
 
         // Below line for testing
-        await interaction.reply(userInfoEmbed); 
+        await interaction.reply({ embeds: [userInfoEmbed]}); 
     },
 };
