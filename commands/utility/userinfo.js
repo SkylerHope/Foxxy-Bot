@@ -1,5 +1,7 @@
 // userinfo.js
 
+// TODO: Add no avatar error handling
+
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const { isURL } = require('validator');
@@ -41,8 +43,6 @@ module.exports = {
                 { name: 'Name', value: `${userName}`, inline: true },
                 { name: 'Joined Server At', value: `${userJoinDate}`, inline: true }
             )
-
-        // Below line for testing
         await interaction.reply({ embeds: [userInfoEmbed]});
     },
 };
