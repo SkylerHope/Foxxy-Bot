@@ -16,18 +16,20 @@ module.exports = {
         const author = message.author;
         const user = interaction.options.getUser('user');
         const userName = user.username;
-        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 256 });
+        const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
+        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 500});
 
         if (!user) {
             user = author;
         }
 
-        const userCache = message.guild.members.cache.get(user.id);
-        const userJoinedAt = userCache.JoinedAt;
+        const userId = guild.members.cache.get(user.id);
+        const userJoinedAt = userId.JoinedAt;
 
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
-            .setAuthor({ name: `${author}`, iconURL: `${userAvatar}`})
+            .setAuthor({ name: `${author}`, iconURL: `${authorAvatar}`})
+            .setThumbnail(`${userAvatar}`)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: false},
                 { name: 'Joined Server At', value: `${userJoinedAt}`, inline: false}
