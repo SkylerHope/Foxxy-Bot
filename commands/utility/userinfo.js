@@ -31,8 +31,8 @@ module.exports = {
             .setAuthor({ name: `${author}`, iconURL: `${authorAvatar}`})
             .setThumbnail(`${userAvatar}`)
             .addFields(
-                { name: 'Name', value: `${userName}`, inline: false},
-                { name: 'Joined Server At', value: `${userJoinedAt}`, inline: false}
+                { name: 'Name', value: `${userName}`, inline: false },
+                { name: 'Joined Server At', value: `${userJoinedAt}`, inline: false }
             )
 
         // Below line for testing
