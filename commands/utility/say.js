@@ -9,5 +9,5 @@ module.exports = {
     execute: async (interaction) => {
         let text = User.arguments;
         await interaction.reply(text);
-    }
-}
+    },
+};
