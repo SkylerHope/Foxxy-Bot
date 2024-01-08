@@ -15,12 +15,16 @@ module.exports = {
     execute: async (interaction) => {
         const author = message.author;
         const user = interaction.options.getUser('user');
+        const userName = user.username;
+        const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 256 });
+
         if (!user) {
             user = author;
         }
 
         const userInfoEmbed = new EmbedBuilder()
-            .setTitle('Info on ' + user.username)
+            .setTitle(`${userName}'s Info`)
+            .setAuthor({ name: `${author}`, iconURL: `${userAvatar}`})
 
         // Below line for testing
         await interaction.reply(userInfoEmbed); 
