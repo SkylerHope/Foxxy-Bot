@@ -14,8 +14,10 @@ module.exports = {
     ),
     execute: async (interaction) => {
         const author = interaction.user;
+        const authorName = author.username;
         const user = interaction.options.getUser('user');
         const userName = user.username;
+        const guild = interaction.guild;
         const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
         const userAvatar = user.avatarURL({ format: 'png', dynamic: true, size: 512});
 
@@ -23,12 +25,12 @@ module.exports = {
             user = author;
         }
 
-        const userId = guild.members.cache.get(user.id);
-        const userJoinedAt = userId.JoinedAt;
+        const userMember = guild.members.cache.get(user.id);
+        const userJoinedAt = userMember.JoinedAt;
 
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
-            .setAuthor({ name: `${author}`, iconURL: `${authorAvatar}`})
+            .setAuthor({ name: `${authorName}`, iconURL: `${authorAvatar}`})
             .setThumbnail(`${userAvatar}`)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: false },
@@ -36,6 +38,6 @@ module.exports = {
             )
 
         // Below line for testing
-        await interaction.reply({ embeds: [userInfoEmbed]}); 
+        await interaction.reply({ embeds: [userInfoEmbed]});
     },
 };
