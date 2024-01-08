@@ -11,4 +11,9 @@ module.exports = {
                 .setDescription('Mention a user')
                 .setRequired(false)
     ),
+    execute: async (interaction) => {
+        const mentionedUser = interaction.options.getName('user');
+        // Below line for testing
+        await interaction.reply(mentionedUser); 
+    }
 };
