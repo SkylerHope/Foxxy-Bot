@@ -28,7 +28,7 @@ module.exports = {
             user = author;
         }
 
-        if(userAvatar == authorAvatar) {
+        if(userAvatar == authorAvatar && user != author) {
             userAvatar = "https://media.tenor.com/jckQWDcU0NEAAAAi/discord-loading-icon.gif";
         }
 
