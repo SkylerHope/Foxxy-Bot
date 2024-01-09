@@ -17,6 +17,7 @@ module.exports = {
         let authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 512 });
         let user = interaction.options.getUser('user');
         const userName = user.username;
+        const userMention = user.mention;
         let userAvatar = user
             ? user.avatarURL({ format: 'png', dynamic: true, size: 512 }) || author.avatarURL({ format: 'png', dynamic: true, size: 512 })
             : author.avatarURL({ format: 'png', dynamic: true, size: 512 });
@@ -27,6 +28,7 @@ module.exports = {
 
         const memeUserEmbed = new EmbedBuilder()
             .setTitle(`${userName}`)
+            .setDescription(`You done did it now you <@${user.id}>!`)
             .setThumbnail(userAvatar)
             .setImage("https://c.tenor.com/ruA2GSxyVoIAAAAd/tenor.gif");
         await interaction.reply({ embeds: [memeUserEmbed] });
