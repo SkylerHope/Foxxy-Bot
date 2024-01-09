@@ -2,7 +2,6 @@
 
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
-const { isURL } = require('validator');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,7 +18,7 @@ module.exports = {
         let user = interaction.options.getUser('user');
         const userName = user ? user.username : authorName;
         const guild = interaction.guild;
-        const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
+        let authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
         let userAvatar = user
             ? user.avatarURL({ format: 'png', dynamic: true, size: 512 }) || author.avatarURL({ format: 'png', dynamic: true, size: 256 })
             : author.avatarURL({ format: 'png', dynamic: true, size: 256 });
@@ -30,6 +29,10 @@ module.exports = {
 
         if(userAvatar == authorAvatar && user != author) {
             userAvatar = "https://media.tenor.com/jckQWDcU0NEAAAAi/discord-loading-icon.gif";
+        }
+
+        if(!authorAvatar) {
+            authorAvatar = "https://media.tenor.com/jckQWDcU0NEAAAAi/discord-loading-icon.gif";
         }
 
         let userMember = guild.members.cache.get(user.id);
