@@ -17,7 +17,6 @@ module.exports = {
         let authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 32 });
         let user = interaction.options.getUser('user');
         const userName = user.username;
-        const userMention = user.mention;
         let userAvatar = user
             ? user.avatarURL({ format: 'png', dynamic: true, size: 32 }) || author.avatarURL({ format: 'png', dynamic: true, size: 32 })
             : author.avatarURL({ format: 'png', dynamic: true, size: 32 });
