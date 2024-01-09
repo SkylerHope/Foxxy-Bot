@@ -1,7 +1,5 @@
 // userinfo.js
 
-// TODO: Add no avatar error handling
-
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const { isURL } = require('validator');
@@ -23,13 +21,15 @@ module.exports = {
         const guild = interaction.guild;
         const authorAvatar = author.avatarURL({ format: 'png', dynamic: true, size: 256 });
         let userAvatar = user
-            ? isURL(user.avatarURL({ format: 'png', dynamic: true, size: 512 }))
-                ? user.avatarURL({ format: 'png', dynamic: true, size: 512 })
-                : authorAvatar
-            : authorAvatar;
+            ? user.avatarURL({ format: 'png', dynamic: true, size: 512 }) || author.avatarURL({ format: 'png', dynamic: true, size: 256 })
+            : author.avatarURL({ format: 'png', dynamic: true, size: 256 });
 
         if (!user) {
             user = author;
+        }
+
+        if(userAvatar == authorAvatar) {
+            userAvatar = "https://media.tenor.com/jckQWDcU0NEAAAAi/discord-loading-icon.gif";
         }
 
         let userMember = guild.members.cache.get(user.id);
