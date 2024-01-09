@@ -28,9 +28,9 @@ module.exports = {
 
         const memeUserEmbed = new EmbedBuilder()
             .setTitle(`${userName}`)
-            .setDescription(`You done did it now you <@${user.id}>!`)
+            .setDescription(`You done did it now <@${user.id}>!`)
             .setThumbnail(userAvatar)
-            .setImage("https://c.tenor.com/ruA2GSxyVoIAAAAd/tenor.gif");
+            .setImage("https://i.ibb.co/724F7wZ/laughatthisuser.gif");
         await interaction.reply({ embeds: [memeUserEmbed] });
     },
 };
