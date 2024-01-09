@@ -46,9 +46,9 @@ module.exports = {
             .setThumbnail(userAvatar)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: true },
-                { name: 'Joined Server At', value: `${userJoinDate}`, inline: true },
-                { name: 'Roles', value: roles.length > 0 ? roles.join(', ') : 'No roles', inline: false },
-                { name: 'Messages', value: `${messageCount}`, inline: true }
+                { name: 'Joined Server At', value: `${userJoinDate}`, inline: false },
+                { name: 'Roles', value: roles.length > 0 ? roles.join(', ') : 'No roles', inline: true },
+                { name: 'Channel Messages', value: `${messageCount}`, inline: true }
             )
         await interaction.reply({ embeds: [userInfoEmbed]});
     },
