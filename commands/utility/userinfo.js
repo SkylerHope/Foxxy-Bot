@@ -37,6 +37,8 @@ module.exports = {
 
         let userMember = guild.members.cache.get(user.id);
         const userJoinDate = userMember.joinedAt ? userMember.joinedAt.toDateString() : 'Not available';
+        const roles = userMember ? userMember.roles.cache.map(role => role.name) : [];
+        const messageCount = userMember ? await interaction.channel.messages.fetch({ limit: 100 }).then(messages => messages.filter(msg => msg.author.id === user.id).size) : 0;
 
         const userInfoEmbed = new EmbedBuilder()
             .setTitle(`${userName}'s Info`)
@@ -44,7 +46,9 @@ module.exports = {
             .setThumbnail(userAvatar)
             .addFields(
                 { name: 'Name', value: `${userName}`, inline: true },
-                { name: 'Joined Server At', value: `${userJoinDate}`, inline: true }
+                { name: 'Joined Server At', value: `${userJoinDate}`, inline: true },
+                { name: 'Roles', value: roles.length > 0 ? roles.join(', ') : 'No roles', inline: false },
+                { name: 'Messages', value: `${messageCount}`, inline: true }
             )
         await interaction.reply({ embeds: [userInfoEmbed]});
     },
