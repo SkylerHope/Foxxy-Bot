@@ -20,4 +20,17 @@ const hugGifs = [
     'https://c.tenor.com/TJ8Zx-IBlqoAAAAd/tenor.gif'
 ]
 
-module.exports = { hugGifs };
+const patGifs = [
+    'https://c.tenor.com/wLqFGYigJuIAAAAd/tenor.gif',
+    'https://c.tenor.com/8DaE6qzF0DwAAAAd/tenor.gif',
+    'https://c.tenor.com/npjq_K1OvcAAAAAd/tenor.gif',
+    'https://c.tenor.com/oGbO8vW_eqgAAAAd/tenor.gif',
+    'https://c.tenor.com/98bIO09hMWEAAAAd/tenor.gif',
+    'https://c.tenor.com/OvrmH29V-44AAAAd/tenor.gif',
+    'https://c.tenor.com/7xrOS-GaGAIAAAAd/tenor.gif',
+    'https://c.tenor.com/tYR36SLB69gAAAAd/tenor.gif',
+    'https://c.tenor.com/TfnG86oaLLgAAAAd/tenor.gif',
+    'https://c.tenor.com/Mbo3EqHctTcAAAAd/tenor.gif'
+]
+
+module.exports = { hugGifs, patGifs };
