@@ -20,7 +20,8 @@ module.exports = {
         let gif = hugGifs[Math.floor(Math.random() * hugGifs.length)];
 
         const hugEmbed = new EmbedBuilder()
-            .setTitle(`${authorName} is hugging <@${user.id}>!`)
-            .setThumbnail(gif);
-    }
-}
+            .setDescription(`${authorName} is hugging <@${user.id}>`)
+            .setThumbnail(gif)
+        await interaction.reply({ embeds: [hugEmbed] });
+    },
+};
