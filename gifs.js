@@ -1,6 +1,6 @@
 // gifs.js
 
-let hugGifs = [
+const hugGifs = [
     'https://c.tenor.com/YuwEoQvncPgAAAAd/tenor.gif',
     'https://c.tenor.com/Ta7V9zu43h8AAAAd/tenor.gif',
     'https://c.tenor.com/G_IvONY8EFgAAAAd/tenor.gif',
@@ -19,3 +19,5 @@ let hugGifs = [
     'https://c.tenor.com/rw0yLzCu0GoAAAAd/tenor.gif',
     'https://c.tenor.com/TJ8Zx-IBlqoAAAAd/tenor.gif'
 ]
+
+module.exports = { hugGifs };
