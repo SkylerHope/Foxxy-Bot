@@ -33,4 +33,18 @@ const patGifs = [
     'https://c.tenor.com/Mbo3EqHctTcAAAAd/tenor.gif'
 ]
 
-module.exports = { hugGifs, patGifs };
+const slapGifs = [
+    'https://c.tenor.com/JugpEiuzcOcAAAAd/tenor.gif',
+    'https://c.tenor.com/E3OW-MYYum0AAAAd/tenor.gif',
+    'https://c.tenor.com/MXZGFeabIIwAAAAd/tenor.gif',
+    'https://c.tenor.com/yJmrNruFNtEAAAAd/tenor.gif',
+    'https://c.tenor.com/uJAu8XAVg5kAAAAd/tenor.gif',
+    'https://c.tenor.com/1tk5BKEdCzcAAAAd/tenor.gif',
+    'https://c.tenor.com/_5FoWyBcuzwAAAAd/tenor.gif',
+    'https://c.tenor.com/-wfr09tbkwcAAAAd/tenor.gif',
+    'https://c.tenor.com/Z9pjcLog5DEAAAAd/tenor.gif',
+    'https://c.tenor.com/l8xQkGbIuJwAAAAd/tenor.gif',
+    'https://c.tenor.com/1JOfQ8HUATUAAAAd/tenor.gif'
+]
+
+module.exports = { hugGifs, patGifs, slapGifs };
