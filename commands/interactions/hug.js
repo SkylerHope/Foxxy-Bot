@@ -12,5 +12,10 @@ module.exports = {
                 .setDescription('Mention a user')
                 .setRequired(true)
     ),
-    
+    execute: async (interaction) => {
+        const author = interaction.user;
+        const authorName = author.username;
+        let user = interaction.options.getUser('user');
+        const userName = user.username;
+    }
 }
